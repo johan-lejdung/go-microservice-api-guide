@@ -7,15 +7,15 @@ import (
 	"os"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/mattes/migrate"
-	"github.com/mattes/migrate/database/mysql"
-	_ "github.com/mattes/migrate/source/file"
+	"github.com/golang-migrate/migrate"
+	"github.com/golang-migrate/migrate/database/mysql"
+	_ "github.com/golang-migrate/migrate/source/file"
 )
 
 func CreateDatabase() (*sql.DB, error) {
-	serverName := "127.0.0.1:3306"
-	user := "root"
-	password := "root"
+	serverName := "localhost:3306"
+	user := "myuser"
+	password := "pw"
 	dbName := "demo"
 
 	db, err := sql.Open("mysql", user+":"+password+"@tcp("+serverName+")/"+dbName+"?&charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true&multiStatements=true")
