@@ -1,6 +1,6 @@
 # REST API
 
-Read the accompanying article here: <LINK>
+Read the accompanying article here: https://medium.com/@johanlejdung/a-mini-guide-build-a-rest-api-as-a-go-microservice-together-with-mysql-fc203a6411c0
 
 Included here are a `docker-compose` file that can be used to spin up a MySQL database in docker for the porpose of running this code.
 
