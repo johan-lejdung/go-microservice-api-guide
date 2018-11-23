@@ -18,7 +18,8 @@ func CreateDatabase() (*sql.DB, error) {
 	password := "pw"
 	dbName := "demo"
 
-	db, err := sql.Open("mysql", user+":"+password+"@tcp("+serverName+")/"+dbName+"?&charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true&multiStatements=true")
+	connectionString := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true&multiStatements=true", user, password, serverName, dbName)
+	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
 		return nil, err
 	}
