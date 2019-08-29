@@ -17,9 +17,21 @@ func CreateDatabase() (*sql.DB, error) {
 	if len(serverName) == 0 {
 		serverName = "localhost:3306"
 	}
-	user := "myuser"
-	password := "pw"
-	dbName := "demo"
+
+	user := os.Getenv("MYSQL_USER")
+	if len(user) == 0 {
+		user = "myuser"
+	}
+
+	password := os.Getenv("MYSQL_PASSWORD")
+	if len(password) == 0 {
+		password = "pw"
+	}
+
+	dbName := os.Getenv("MYSQL_DATABASE")
+	if len(dbName) == 0 {
+		dbName = "demo"
+	}
 
 	connectionString := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true&multiStatements=true", user, password, serverName, dbName)
 	db, err := sql.Open("mysql", connectionString)
