@@ -13,7 +13,10 @@ import (
 )
 
 func CreateDatabase() (*sql.DB, error) {
-	serverName := "localhost:3306"
+	serverName := os.Getenv("MYSQL_HOST")
+	if len(serverName) == 0 {
+		serverName = "localhost:3306"
+	}
 	user := "myuser"
 	password := "pw"
 	dbName := "demo"
