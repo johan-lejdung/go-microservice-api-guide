@@ -37,3 +37,7 @@ Then fetching a value with
 ```
 curl localhost:8080/endpoint/1 -v
 ```
+
+## Further reading
+
+If you are interested in optimal folder structure, have a look at this [github.com/golang-standards/project-layout](https://github.com/golang-standards/project-layout).
