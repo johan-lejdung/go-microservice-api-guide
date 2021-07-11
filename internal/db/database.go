@@ -43,7 +43,7 @@ func migrateDatabase(db *sql.DB) error {
 	}
 
 	migration, err := migrate.NewWithDatabaseInstance(
-		fmt.Sprintf("file://%s/db/migrations", dir),
+		fmt.Sprintf("file://%s/internal/db/migrations", dir),
 		"mysql",
 		driver,
 	)
